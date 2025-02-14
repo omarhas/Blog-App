@@ -10,7 +10,9 @@ This project demonstrates how to Dockerize a React application, build and push t
 This project consists of the following components:
 
 Dockerfile: Defines how to build a Docker image for the React application.
+
 GitHub Actions pipeline: Automates the process of building and pushing the Docker image to Docker Hub when changes are pushed to the main branch.
+
 Ansible playbook: Automates the process of pulling the Docker image from Docker Hub and running it as a container on a host machine.
 
 
@@ -21,7 +23,9 @@ Ansible playbook: Automates the process of pulling the Docker image from Docker 
 Before using this project, ensure you have the following:
 
   Docker: Installed on both the local machine (for building and running containers) and the target machine (for pulling and running containers).
+
   Docker Hub account: For pushing and pulling the Docker image.
+  
   GitHub repository: For storing the source code of the React application and using GitHub Actions to build and push the Docker image.
   Ansible: Installed on the host machine for automation.
 
