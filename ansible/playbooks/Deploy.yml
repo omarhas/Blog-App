@@ -2,19 +2,21 @@
 - name: Fetch Docker image from Docker Hub and run it
   hosts: localhost
   become: yes  
+  vars:
+    - image_name: "omarhasni123/react-app"
   tasks:
 
     # This step will pull docker image from docker hub
     - name: Pull Docker image from Docker Hub
       docker_image:
-        name: "omarhasni123/react-app"  
+        name: "{{ image_name }}"  
         source: pull
 
     # This will run our container on port 80
     - name: Run Docker container from pulled image
       docker_container:
         name: "react-app-container"  
-        image: "omarhasni123/react-app"  
+        image: "{{ image_name }}"  
         state: started
         restart_policy: always
         ports:
