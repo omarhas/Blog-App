@@ -1,0 +1,25 @@
+---
+- name: Fetch Docker image from Docker Hub and run it
+  hosts: localhost
+  become: yes  
+  tasks:
+
+    # This step will pull docker image from docker hub
+    - name: Pull Docker image from Docker Hub
+      docker_image:
+        name: "omarhasni123/react-app"  
+        source: pull
+
+    # This will run our container on port 80
+    - name: Run Docker container from pulled image
+      docker_container:
+        name: "react-app-container"  
+        image: "omarhasni123/react-app"  
+        state: started
+        restart_policy: always
+        ports:
+          - "80:80"  
+
+    # This step will delete unused container and images => freeing up space
+    - name: remove unused containers 
+      command: docker system prune -a 
