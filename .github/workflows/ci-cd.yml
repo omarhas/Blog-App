@@ -6,7 +6,7 @@ on:
       - main  
 
 jobs:
-  build-and-test:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -18,11 +18,8 @@ jobs:
       - name: Run Tests
         run: npm test
 
-      - name: Build React App
-        run: npm run build
-
   build-and-push-docker:
-    needs: build-and-test
+    needs: test
     runs-on: ubuntu-latest 
 
     steps:
